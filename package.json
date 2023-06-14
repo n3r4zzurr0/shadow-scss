@@ -1,0 +1,23 @@
+{
+  "name": "shadow-scss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "_shadow.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n3r4zzurr0/shadow-scss.git"
+  },
+  "keywords": [
+    "scss",
+    "shadow",
+    "box-shadow",
+    "text-shadow",
+    "css"
+  ],
+  "author": "Utkarsh Verma",
+  "license": "MIT",
+  "homepage": "https://n3r4zzurr0.in/shadow-scss"
+}
