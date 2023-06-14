@@ -1,0 +1,126 @@
+// @param  {Number}  $value
+// @param  {Number}  $n
+// @return {Number}
+
+@function round-n($value, $n) {
+  @return calc(round($value * 10 * $n) / (10 * $n));
+}
+
+// @param  {String}           $type
+// @param  {Number|Function}  $fn
+// @param  {Number}           $i
+// @param  {Number}           $count
+// @return {Number}
+
+@function call-if-function($type, $fn, $i, $count) {
+  @return if(type-of($fn) == $type, $fn, call($fn, $i, $count));
+}
+
+// @param  {Boolean}          $inset
+// @param  {Number|Function}  $x
+// @param  {Number|Function}  $y
+// @param  {Number|Function}  $blur-radius
+// @param  {Number|Function}  $spread-radius
+// @param  {Color|Function}   $color
+// @param  {Number|Function}  $step
+// @param  {Number|Function}  $stepX
+// @param  {Number|Function}  $stepY
+// @param  {Number}           $count
+// @return {String}
+
+@function box-shadow (
+  $inset: false,
+  $x: 0,
+  $y: 0,
+  $blur-radius: 0,
+  $spread-radius: 0,
+  $color: #000,
+  $step: 0,
+  $stepX: null,
+  $stepY: null,
+  $count: 1
+) {
+
+  $shadow: ();
+
+  @if($stepX == null) {
+    $stepX: $step;
+  }
+  @if($stepY == null) {
+    $stepY: $step;
+  }
+
+  $_sum-stepX: 0;
+  $_sum-stepY: 0;
+
+  @for $i from 1 through $count {
+
+    $_stepX: round-n(call-if-function("number", $stepX, $i, $count), 2);
+    $_stepY: round-n(call-if-function("number", $stepY, $i, $count), 2);
+
+    $_sum-stepX: $_sum-stepX + $_stepX;
+    $_sum-stepY: $_sum-stepY + $_stepY;
+
+    $_x: round-n(call-if-function("number", $x, $i, $count), 2);
+    $_y: round-n(call-if-function("number", $y, $i, $count), 2);
+    $_blur-radius: round-n(call-if-function("number", $blur-radius, $i, $count), 2);
+    $_spread-radius: round-n(call-if-function("number", $spread-radius, $i, $count), 2);
+    $_color: call-if-function("color", $color, $i, $count);
+
+    $shadow: append($shadow, #{if($inset, "inset", "")} #{$_x + $_sum-stepX} #{$_y + $_sum-stepY} $_blur-radius $_spread-radius $_color, comma);
+  }
+
+  @return $shadow;
+}
+
+// @param  {Number|Function}  $x
+// @param  {Number|Function}  $y
+// @param  {Number|Function}  $blur-radius
+// @param  {Color|Function}   $color
+// @param  {Number|Function}  $step
+// @param  {Number|Function}  $stepX
+// @param  {Number|Function}  $stepY
+// @param  {Number}           $count
+// @return {String}
+
+@function text-shadow (
+  $x: 0,
+  $y: 0,
+  $blur-radius: 0,
+  $color: #000,
+  $step: 0,
+  $stepX: null,
+  $stepY: null,
+  $count: 1
+) {
+
+  $shadow: ();
+
+  @if($stepX == null) {
+    $stepX: $step;
+  }
+  @if($stepY == null) {
+    $stepY: $step;
+  }
+
+  $_sum-stepX: 0;
+  $_sum-stepY: 0;
+
+  @for $i from 1 through $count {
+
+    $_stepX: round-n(call-if-function("number", $stepX, $i, $count), 2);
+    $_stepY: round-n(call-if-function("number", $stepY, $i, $count), 2);
+
+    $_sum-stepX: $_sum-stepX + $_stepX;
+    $_sum-stepY: $_sum-stepY + $_stepY;
+
+    $_x: round-n(call-if-function("number", $x, $i, $count), 2);
+    $_y: round-n(call-if-function("number", $y, $i, $count), 2);
+    $_blur-radius: round-n(call-if-function("number", $blur-radius, $i, $count), 2);
+    $_color: call-if-function("color", $color, $i, $count);
+
+    $shadow: append($shadow, #{$_x + $_sum-stepX} #{$_y + $_sum-stepY} $_blur-radius $_color, comma);
+  }
+
+  @return $shadow;
+}
