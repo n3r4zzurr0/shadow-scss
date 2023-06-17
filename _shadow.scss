@@ -1,9 +1,11 @@
+@use "sass:math";
+
 // @param  {Number}  $value
 // @param  {Number}  $n
 // @return {Number}
 
 @function round-n($value, $n) {
-  @return calc(round($value * 10 * $n) / (10 * $n));
+  @return math.div(round($value * 10 * $n), (10 * $n));
 }
 
 // @param  {String}           $type
