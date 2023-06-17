@@ -139,6 +139,8 @@ where `$i` denotes the nth shadow and `$count` is the total number of shadows wh
 </tr>
 </table>
 
+<br/>
+
 Refer to the MDN Web Docs for [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#values) and [`text-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow#values) for a better understanding of the native parameters.
 
 ## License
