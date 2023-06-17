@@ -28,22 +28,22 @@ or just `@import` the `_shadow.scss` partial into your Sass project.
 
 **`box-shadow()`**
 
-```
+```scss
 box-shadow: box-shadow(
-	$color: #000,
-	$step: 2px,
-	$count: 10
+  $color: #000,
+  $step: 2px,
+  $count: 10
 )
 ```
 
 **`text-shadow()`**
 
-```
+```scss
 text-shadow: text-shadow(
-	$color: #ccc,
-	$stepX: -.5px,
-	$stepY: .5px,
-	$count: 50
+  $color: #ccc,
+  $stepX: -.5px,
+  $stepY: .5px,
+  $count: 50
 )
 ```
 
