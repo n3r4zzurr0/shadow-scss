@@ -1,3 +1,4 @@
+@use "sass:meta";
 @use "sass:math";
 
 // @param  {Number}  $value
@@ -5,7 +6,7 @@
 // @return {Number}
 
 @function round-n($value, $n) {
-  @return math.div(round($value * 10 * $n), (10 * $n));
+  @return math.div(math.round($value * 10 * $n), (10 * $n));
 }
 
 // @param  {String}           $type
@@ -15,7 +16,7 @@
 // @return {Number}
 
 @function call-if-function($type, $fn, $i, $count) {
-  @return if(type-of($fn) == $type, $fn, call($fn, $i, $count));
+  @return if(meta.type-of($fn) == $type, $fn, call($fn, $i, $count));
 }
 
 // @param  {Boolean}          $inset

@@ -1,7 +1,7 @@
 {
   "name": "shadow-scss",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.4",
+  "description": "Set of two Sass functions (box-shadow and text-shadow) to write multiple shadows",
   "main": "_shadow.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
