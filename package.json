@@ -1,6 +1,6 @@
 {
   "name": "shadow-scss",
-  "version": "1.0.4",
+  "version": "1.0.3",
   "description": "Set of two Sass functions (box-shadow and text-shadow) to write multiple shadows",
   "main": "_shadow.scss",
   "scripts": {
