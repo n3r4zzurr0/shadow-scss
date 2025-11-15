@@ -10,8 +10,6 @@ A set of two Sass functions (`box-shadow()` and `text-shadow()`) to write multip
 
 **[Examples](https://n3r4zzurr0.in/shadow-scss/)**
 
-![Demo](https://n3r4zzurr0.in/static/shadow-scss.gif)
-
 ## Installation
 
 With npm,
